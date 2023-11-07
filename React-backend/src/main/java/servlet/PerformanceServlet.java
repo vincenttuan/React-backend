@@ -1,6 +1,8 @@
 package servlet;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,6 +30,8 @@ public class PerformanceServlet extends HttpServlet {
 		resp.setHeader("Access-Control-Allow-Origin", "*");
 		resp.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
 		resp.setHeader("Access-Control-Allow-Headers", "Content-Type");
+		// 回應狀態
+		resp.setStatus(HttpServletResponse.SC_OK);
 	}
 
 	@Override
@@ -36,6 +40,17 @@ public class PerformanceServlet extends HttpServlet {
 		resp.setHeader("Access-Control-Allow-Origin", "*");
 		resp.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
 		resp.setHeader("Access-Control-Allow-Headers", "Content-Type");
+		
+		// 接收來自前端 React 的效能統計資料
+		BufferedReader reader = req.getReader();
+		String payload = reader.lines().collect(Collectors.joining(System.lineSeparator()));
+		
+		// 處理/印出 payload
+		System.out.println("react payload: " + payload);
+		
+		// 回應狀態
+		resp.setStatus(HttpServletResponse.SC_OK);
+			
 	}
 	
 }
