@@ -28,9 +28,9 @@ public class Predict {
 	
 	// Smile 機器學習
 	public static double smile(String stockNo, String date) throws IOException {
-    	// 使用GetPrice類的getClosingPrice方法獲取這支股票過去30天的收盤價格
+    	// 使用GetPrice類的getClosingPrice方法獲取這支股票過去 N 天的收盤價格
         double[] prices = getClosingPrice(stockNo, date);
-        // 使用GetPrice類的getVolume方法獲取這支股票過去30天的成交量
+        // 使用GetPrice類的getVolume方法獲取這支股票過去 N 天的成交量
         double[] volumes = getVolume(stockNo, date);
 
         // 創建一個DataFrame來存儲股票的價格和成交量數據
