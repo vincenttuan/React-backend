@@ -19,10 +19,10 @@ import smile.regression.RandomForest;
 public class Predict {
 	// 測試用
 	public static void main(String[] args) throws IOException {
-		double predictPrice1 = simpleRegression("2330", "20231031");
+		double predictPrice1 = simpleRegression("2330", "20231130");
 		System.out.println("Regression 預測下一個值（明日股價）: " + predictPrice1);
 		
-		double predictPrice2 = smile("2330", "20231031");
+		double predictPrice2 = smile("2330", "20231130");
 		System.out.println("Smile 預測下一個值（明日股價）: " + predictPrice2);
 	}
 	
